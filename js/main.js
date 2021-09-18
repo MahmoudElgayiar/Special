@@ -6,8 +6,9 @@ if (localStorage.getItem("Site-Color") != null) {
     );
     let listOfColors = document.querySelectorAll(".colors li");
     listOfColors.forEach((element) => {
+        element.classList.remove("active");
         if (
-            element.getAttribute("data-color") ==
+            element.getAttribute("data-color") ===
             localStorage.getItem("Site-Color")
         ) {
             element.classList.add("active");
