@@ -66,7 +66,7 @@ BgButtons.forEach((element) => {
             RandomizeBacground();
         } else {
             document.querySelector(".start-stop .stop").classList.add("active");
-            clearInterval("BackgroundInterval");
+            clearInterval(BackgroundInterval);
         }
     } else if (IsRandom) {
         document.querySelector(".start-stop .start").classList.add("active");
@@ -90,6 +90,7 @@ BgButtons.forEach((element) => {
             RandomizeBacground();
             localStorage.setItem("background-random", true);
         } else if (this.getAttribute("data-background") == "stop") {
+            console.log(this.getAttribute("data-background"));
             IsRandom = false;
             clearInterval(BackgroundInterval);
             localStorage.setItem("background-random", false);
