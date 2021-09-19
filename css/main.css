@@ -87,13 +87,30 @@ body {
     background-color: #02ee0e;
 }
 
+/* Randomize Background */
+.start-stop {
+    margin-bottom: 15px;
+}
+.settings-box .background-box .start-stop .start,
+.settings-box .background-box .start-stop .stop {
+    background-color: var(--main-color);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.settings-box .background-box .start-stop .active {
+    opacity: 1;
+}
+
 /* End Settings Box */
 
 /* Start Landing Page */
 .landing-page {
     height: 100vh;
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url(../images/01.jpg); */
     background-size: cover;
     position: relative;
     transition: ease 0.3s;

@@ -24,16 +24,80 @@ document.querySelector(".icon .fa-cog").onclick = function () {
 };
 // End Settings Box
 // Start Change Background
-let landingPage = document.querySelector(".landing-page");
-let backgrounds = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
-landingPage.style.backgroundImage = 'url("images/01.jpg")';
-setInterval(() => {
-    let randomNumber = Math.floor(Math.random() * backgrounds.length);
-    landingPage.style.backgroundImage =
-        'url("images/' + backgrounds[randomNumber] + '")';
-}, 3000);
-// End Change Background
 
+// let landingPage = document.querySelector(".landing-page");
+// let backgrounds = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
+// landingPage.style.backgroundImage = 'url("images/01.jpg")';
+// setInterval(() => {
+//     let randomNumber = Math.floor(Math.random() * backgrounds.length);
+//     landingPage.style.backgroundImage =
+//         'url("images/' + backgrounds[randomNumber] + '")';
+// }, 3000);
+let IsRandom = true;
+let BackgroundInterval;
+let BgButtons = document.querySelectorAll(".start-stop span");
+
+document.querySelector(".landing-page").style.backgroundImage =
+    'url("images/01.jpg")';
+function RandomizeBacground() {
+    if (IsRandom === true) {
+        let landingPage = document.querySelector(".landing-page");
+        let backgrounds = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
+        BackgroundInterval = setInterval(() => {
+            let randomNumber = Math.floor(Math.random() * backgrounds.length);
+            landingPage.style.backgroundImage =
+                'url("images/' + backgrounds[randomNumber] + '")';
+        }, 1000);
+    }
+}
+
+BgButtons.forEach((element) => {
+    let isactive = document.querySelectorAll(".start-stop .active");
+    if (isactive) {
+        isactive.forEach((element) => {
+            element.classList.remove("active");
+        });
+    }
+    if (localStorage.getItem("background-random") != null) {
+        if (localStorage.getItem("background-random") == "true") {
+            document
+                .querySelector(".start-stop .start")
+                .classList.add("active");
+            RandomizeBacground();
+        } else {
+            document.querySelector(".start-stop .stop").classList.add("active");
+            clearInterval("BackgroundInterval");
+        }
+    } else if (IsRandom) {
+        document.querySelector(".start-stop .start").classList.add("active");
+        RandomizeBacground();
+    }
+});
+
+// Loop On background Start Stop Keys
+BgButtons.forEach((element) => {
+    element.onclick = function () {
+        let isactive = document.querySelectorAll(".start-stop .active");
+        if (isactive) {
+            isactive.forEach((element) => {
+                element.classList.remove("active");
+            });
+        }
+        this.classList.add("active");
+
+        if (this.getAttribute("data-background") == "start") {
+            IsRandom = true;
+            RandomizeBacground();
+            localStorage.setItem("background-random", true);
+        } else if (this.getAttribute("data-background") == "stop") {
+            IsRandom = false;
+            clearInterval(BackgroundInterval);
+            localStorage.setItem("background-random", false);
+        }
+    };
+});
+
+// End Change Backgrounds
 // Start Menu Active Class
 (function () {
     let menuItems = document.querySelectorAll(".menuItems");
