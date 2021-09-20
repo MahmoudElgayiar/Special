@@ -36,42 +36,35 @@ document.querySelector(".icon .fa-cog").onclick = function () {
 let IsRandom = true;
 let BackgroundInterval;
 let BgButtons = document.querySelectorAll(".start-stop span");
+let landingPage = document.querySelector(".landing-page");
+let backgrounds = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 
 document.querySelector(".landing-page").style.backgroundImage =
     'url("images/01.jpg")';
-function RandomizeBacground() {
-    if (IsRandom === true) {
-        let landingPage = document.querySelector(".landing-page");
-        let backgrounds = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
-        BackgroundInterval = setInterval(() => {
-            let randomNumber = Math.floor(Math.random() * backgrounds.length);
-            landingPage.style.backgroundImage =
-                'url("images/' + backgrounds[randomNumber] + '")';
-        }, 1000);
-    }
-}
 
 BgButtons.forEach((element) => {
-    let isactive = document.querySelectorAll(".start-stop .active");
-    if (isactive) {
-        isactive.forEach((element) => {
-            element.classList.remove("active");
-        });
-    }
-    if (localStorage.getItem("background-random") != null) {
+    // let isactive = document.querySelectorAll(".start-stop .active");
+    // if (isactive) {
+    //     isactive.forEach((element) => {
+    //         element.classList.remove("active");
+    //     });
+    // }
+    if (localStorage.getItem("background-random") !== null) {
         if (localStorage.getItem("background-random") == "true") {
             document
                 .querySelector(".start-stop .start")
                 .classList.add("active");
+            IsRandom = true;
             RandomizeBacground();
         } else {
             document.querySelector(".start-stop .stop").classList.add("active");
+            IsRandom = false;
             clearInterval(BackgroundInterval);
         }
-    } else if (IsRandom) {
-        document.querySelector(".start-stop .start").classList.add("active");
-        RandomizeBacground();
-    }
+    } // else if (IsRandom) {
+    //     document.querySelector(".start-stop .start").classList.add("active");
+    //     RandomizeBacground();
+    // }
 });
 
 // Loop On background Start Stop Keys
@@ -88,15 +81,24 @@ BgButtons.forEach((element) => {
         if (this.getAttribute("data-background") == "start") {
             IsRandom = true;
             RandomizeBacground();
-            localStorage.setItem("background-random", true);
+            localStorage.setItem("background-random", "true");
         } else if (this.getAttribute("data-background") == "stop") {
-            console.log(this.getAttribute("data-background"));
             IsRandom = false;
             clearInterval(BackgroundInterval);
-            localStorage.setItem("background-random", false);
+            localStorage.setItem("background-random", "false");
         }
     };
 });
+
+function RandomizeBacground() {
+    if (IsRandom === true) {
+        BackgroundInterval = setInterval(() => {
+            let randomNumber = Math.floor(Math.random() * backgrounds.length);
+            landingPage.style.backgroundImage =
+                'url("images/' + backgrounds[randomNumber] + '")';
+        }, 1000);
+    }
+}
 
 // End Change Backgrounds
 // Start Menu Active Class
