@@ -123,6 +123,7 @@ window.onscroll = function () {
         let allskills = document.querySelectorAll(
             ".all-skills .skill-box .skill-progress span"
         );
+        console.log(allskills);
         allskills.forEach((skill) => {
             skill.style.width = skill.dataset.progress;
         });
