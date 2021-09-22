@@ -109,3 +109,24 @@ listOfColors.forEach((color) => {
 });
 
 // End Change Main Site Color
+
+//Start Our Skills
+
+let skills = document.querySelector(".skills");
+
+window.onscroll = function () {
+    let skillsOffsetTop = skills.offsetTop;
+    let skillsouterheight = skills.offsetHeight;
+    let windowHeight = this.innerHeight;
+    let windowScrollTop = this.scrollY;
+    if (windowScrollTop > skillsOffsetTop + skillsouterheight - windowHeight) {
+        let allskills = document.querySelectorAll(
+            ".all-skills .skill-box .skill-progress span"
+        );
+        allskills.forEach((skill) => {
+            skill.style.width = skill.dataset.progress;
+        });
+    }
+};
+
+//End Our Skills
