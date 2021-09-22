@@ -6,10 +6,16 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+.container {
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: auto;
+}
 /* Start Settings Box */
 
 .settings-box {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 10000;
@@ -17,6 +23,7 @@ body {
     height: 100vh;
     background-color: #fff;
     transition: ease 0.3s;
+    border-radius: 0 10px 10px 0;
 }
 .settings-container {
     width: 100%;
@@ -140,7 +147,6 @@ body {
 
 .main-nav .logo {
     width: 300px;
-    text-align: right;
     color: var(--main-color);
     font-weight: bold;
 }
@@ -148,7 +154,6 @@ body {
     width: 100%;
     list-style: none;
     text-align: right;
-    padding-right: 15%;
 }
 
 .main-nav .links li {
@@ -184,3 +189,32 @@ body {
     line-height: 1.5;
 }
 /* End Landing Page */
+
+/* Start About Us */
+.about-us {
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.about-us .text-box {
+    flex: 1;
+    padding-left: 15px;
+}
+.about-us .text-box h1 {
+    color: var(--main-color);
+    font-weight: bold;
+}
+.about-us .text-box p {
+    line-height: 2;
+    color: #767676;
+}
+.about-us .image-box {
+    flex: 1;
+    padding-right: 15px;
+    text-align: right;
+}
+.about-us .image-box img {
+    width: 350px;
+}
+
+/* End About Us */

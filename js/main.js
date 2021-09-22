@@ -45,7 +45,7 @@ function RandomizeBacground() {
             let randomNumber = Math.floor(Math.random() * backgrounds.length);
             landingPage.style.backgroundImage =
                 'url("images/' + backgrounds[randomNumber] + '")';
-        }, 1000);
+        }, 5000);
     }
 }
 // Check If Local Storage Have Data and load it if exist
