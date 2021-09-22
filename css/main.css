@@ -218,3 +218,51 @@ body {
 }
 
 /* End About Us */
+/* Start Our Skills */
+.skills {
+    background-color: #eee;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.skills .title {
+    color: var(--main-color);
+    text-align: center;
+}
+
+.all-skills {
+}
+
+.all-skills .skill-box {
+    display: flex;
+    background-color: #fff;
+    padding: 10px;
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.all-skills .skill-box .skill-name {
+    width: 110px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.all-skills .skill-box .skill-progress {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: #eee;
+}
+
+.all-skills .skill-box .skill-progress span {
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color);
+    width: 80%;
+}
+
+/* End Our Skills */
