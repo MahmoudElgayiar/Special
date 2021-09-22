@@ -263,7 +263,7 @@ body {
     left: 0;
     background-color: var(--main-color);
     width: 0;
-    transition: all 0.5s;
+    transition: width 3s ease-in;
 }
 
 /* End Our Skills */
