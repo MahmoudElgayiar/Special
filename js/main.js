@@ -123,7 +123,6 @@ window.onscroll = function () {
         let allskills = document.querySelectorAll(
             ".all-skills .skill-box .skill-progress span"
         );
-        console.log(allskills);
         allskills.forEach((skill) => {
             skill.style.width = skill.dataset.progress;
         });
@@ -131,3 +130,55 @@ window.onscroll = function () {
 };
 
 //End Our Skills
+
+// Start Our Gallery
+let images = document.querySelectorAll(".gallery .images-box img");
+let gallery = document.querySelector(".gallery");
+images.forEach((image) => {
+    image.addEventListener("click", (e) => {
+        //Create Overlay
+        let popupOverlay = document.createElement("div");
+        popupOverlay.className = "popup-overlay";
+        gallery.appendChild(popupOverlay);
+        // create popup
+        let popupbox = document.createElement("div");
+        popupbox.className = "popup-box";
+        gallery.appendChild(popupbox);
+        //Create image
+        let popupImage = document.createElement("img");
+        popupbox.appendChild(popupImage);
+        popupImage.src = image.src;
+        //Show Image Title
+        if (image.alt !== "") {
+            let imageHeading = document.createElement("h2");
+            let headingText = document.createTextNode(image.alt);
+            imageHeading.appendChild(headingText);
+            popupbox.prepend(imageHeading);
+        }
+
+        let popupClose = document.createElement("div");
+        let closeText = document.createTextNode("X");
+        popupClose.className = "popup-Close";
+        popupClose.appendChild(closeText);
+
+        popupbox.appendChild(popupClose);
+    });
+});
+
+//Press X To Close Popup
+document.addEventListener("click", (e) => {
+    if (e.target.className == "popup-Close") {
+        e.target.parentNode.remove();
+        document.querySelector(".popup-overlay").remove();
+    }
+});
+
+//Detect Escape Key Press To Remove PopUp
+document.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+        document.querySelector(".popup-overlay").remove();
+        document.querySelector(".popup-box").remove();
+    }
+});
+
+// End Our Gallery
