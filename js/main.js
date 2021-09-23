@@ -171,6 +171,11 @@ document.addEventListener("click", (e) => {
         e.target.parentNode.remove();
         document.querySelector(".popup-overlay").remove();
     }
+
+    if (e.target.className == "popup-overlay") {
+        document.querySelector(".popup-box").remove();
+        document.querySelector(".popup-overlay").remove();
+    }
 });
 
 //Detect Escape Key Press To Remove PopUp
