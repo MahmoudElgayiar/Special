@@ -124,6 +124,16 @@ body {
     transition: ease 0.3s;
 }
 
+.landing-page::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: calc(100vh - 250px);
+    background: linear-gradient(0deg, #ffffff, transparent);
+    padding-top: 250px;
+    z-index: 1;
+}
+
 .main-nav .links li a.active {
     color: var(--main-color) !important;
     font-weight: bold;
