@@ -31,6 +31,8 @@ let BgButtons = document.querySelectorAll(".start-stop span");
 let landingPage = document.querySelector(".landing-page");
 let backgrounds = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 
+landingPage.style.backgroundImage = 'url("images/' + backgrounds[1] + '")';
+
 function removeActive(...elements) {
     let allelements = document.querySelectorAll(elements);
     allelements.forEach((oneelement) => {
@@ -85,16 +87,7 @@ BgButtons.forEach((span) => {
 
 let menuItems = document.querySelectorAll(".menuItems");
 let menuItemsArray = Array.prototype.slice.call(menuItems);
-// menuItems.forEach((item) => {
-//     item.onclick = function (e) {
-//         e.preventDefault();
-//         removeActive(".menuItems.active");
-//         this.classList.add("active");
-//         document.querySelector(this.dataset.section).scrollIntoView({
-//             behavior: "smooth",
-//         });
-//     };
-// });
+
 // End Menu Active Class
 
 // Start Change Main Site Color
