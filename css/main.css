@@ -24,6 +24,7 @@ body {
     height: 100vh;
     background-color: #fff;
     transition: ease 0.3s;
+    border: 1px solid #eee;
     border-radius: 0 10px 10px 0;
 }
 .settings-container {
@@ -203,9 +204,11 @@ body {
 
 /* Start About Us */
 .about-us {
-    display: flex;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+.about-us-content {
+    display: flex;
 }
 .about-us .text-box {
     flex: 1;
