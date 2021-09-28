@@ -82,15 +82,15 @@ BgButtons.forEach((span) => {
 
 // End Change Backgrounds
 // Start Menu Active Class
-(function () {
-    let menuItems = document.querySelectorAll(".menuItems");
-    menuItems.forEach((item) => {
-        item.onclick = function () {
-            removeActive(".links .active");
-            this.classList.add("active");
-        };
-    });
-})();
+
+let menuItems = document.querySelectorAll(".menuItems");
+
+menuItems.forEach((item) => {
+    item.onclick = function () {
+        removeActive(".links .active");
+        this.classList.add("active");
+    };
+});
 // End Menu Active Class
 
 // Start Change Main Site Color
@@ -127,6 +127,36 @@ window.onscroll = function () {
             skill.style.width = skill.dataset.progress;
         });
     }
+
+    let Sections = document.querySelectorAll("section");
+    Sections.forEach((section) => {
+        if (window.scrollY >= section.offsetTop) {
+            let allBullets = document.querySelectorAll(".bullet");
+            allBullets.forEach((bullet) => {
+                if (section.offsetTop >= bullet.dataset.offset) {
+                    removeActive(".bullet.active");
+                    bullet.classList.add("active");
+                }
+            });
+        }
+    });
+
+    // let Sections = document.querySelectorAll("section");
+    // Sections.forEach((section) => {
+    //     let sectionOffsetTop = section.offsetTop;
+    //     let sectionouterheight = section.offsetHeight;
+    //     let windowHeight = this.innerHeight;
+    //     let windowScrollTop = this.scrollY;
+    //     if (
+    //         windowScrollTop >
+    //         sectionOffsetTop + sectionouterheight - windowHeight
+    //     ) {
+    //         let allBullets = document.querySelectorAll(".bullet");
+    //         allBullets.forEach((bullet) => {
+    //             bullet.classList.add("active");
+    //         });
+    //     }
+    // });
 };
 
 //End Our Skills
@@ -187,3 +217,46 @@ document.addEventListener("keyup", (e) => {
 });
 
 // End Our Gallery
+
+//Start Bullets System
+let allSections = document.querySelectorAll("section");
+let bulletsSection = document.querySelector(".bullets");
+
+allSections.forEach((section) => {
+    //get section class
+    // let sectionClass = section.className;
+    sectionHeading = document.querySelector(
+        "." + section.className + " h1"
+    ).innerHTML;
+    let bullet = document.createElement("div");
+    bullet.className = "bullet";
+    bulletsSection.appendChild(bullet);
+    bullet.setAttribute("data-section", "." + section.className);
+    bullet.setAttribute("data-offset", section.offsetTop);
+    let tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+    let tooltipText = document.createTextNode(sectionHeading);
+    tooltip.appendChild(tooltipText);
+    bullet.appendChild(tooltip);
+});
+
+let allBullets = document.querySelectorAll(".bullet");
+let allBulletsarray = Array.prototype.slice.call(allBullets);
+
+//ScrollToSection
+function scrollToSection(elements) {
+    elements.forEach((element) => {
+        element.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                behavior: "smooth",
+            });
+            removeActive(".bullet.active");
+            element.classList.add("active");
+        });
+    });
+}
+
+scrollToSection(allBulletsarray);
+
+//End Bullets System

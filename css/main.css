@@ -4,7 +4,7 @@
 }
 body {
     font-family: "Open Sans", sans-serif;
-    height: 4000px;
+    height: 6000px;
 }
 
 .container {
@@ -526,11 +526,11 @@ body {
     color: #7b7171;
 }
 /* End Features */
+/* Start Testimonials */
 .testimonials {
     padding-top: 50px;
     padding-bottom: 50px;
     position: relative;
-    min-height: 600px;
 }
 
 .testimonials::before {
@@ -560,8 +560,88 @@ body {
     display: flex;
 }
 
+.testimonials .testimonials-content .ts-box > p {
+    color: #707070;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
 .testimonials .testimonials-content .ts-box {
     background-color: #fff;
     margin: 10px;
     padding: 15px;
+    transition: 1s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.testimonials .testimonials-content .ts-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.testimonials .testimonials-content .ts-box .person-info img {
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.testimonials .testimonials-content .ts-box .person-info h5 {
+    margin: 0 0 5px 0;
+    padding-top: 5px;
+}
+
+.testimonials .testimonials-content .ts-box .person-info p {
+    margin: 0;
+    color: #707070;
+}
+/* Start Bullets System */
+.bullets {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 60px;
+    z-index: 999;
+}
+
+.bullets .bullet {
+    width: 10px;
+    height: 10px;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+    position: relative;
+}
+
+.bullets .bullet.active {
+    background-color: var(--main-color);
+}
+.bullets .bullet .tooltip {
+    width: 100px;
+    background-color: var(--main-color);
+    color: #fff;
+    top: -8px;
+    right: 20px;
+    position: absolute;
+    text-align: center;
+    padding: 4px 10px;
+    display: none;
+    pointer-events: none;
+}
+
+.bullets .bullet:hover .tooltip {
+    display: block;
+}
+
+.bullets .bullet .tooltip::before {
+    content: "";
+    border-style: solid;
+    border-width: 7px;
+    border-color: transparent transparent transparent var(--main-color);
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* End Bullets System */
