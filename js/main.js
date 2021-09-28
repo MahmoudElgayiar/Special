@@ -84,17 +84,17 @@ BgButtons.forEach((span) => {
 // Start Menu Active Class
 
 let menuItems = document.querySelectorAll(".menuItems");
-
-menuItems.forEach((item) => {
-    item.onclick = function (e) {
-        e.preventDefault();
-        removeActive(".menuItems.active");
-        this.classList.add("active");
-        document.querySelector(this.dataset.section).scrollIntoView({
-            behavior: "smooth",
-        });
-    };
-});
+let menuItemsArray = Array.prototype.slice.call(menuItems);
+// menuItems.forEach((item) => {
+//     item.onclick = function (e) {
+//         e.preventDefault();
+//         removeActive(".menuItems.active");
+//         this.classList.add("active");
+//         document.querySelector(this.dataset.section).scrollIntoView({
+//             behavior: "smooth",
+//         });
+//     };
+// });
 // End Menu Active Class
 
 // Start Change Main Site Color
@@ -236,19 +236,20 @@ let allBullets = document.querySelectorAll(".bullet");
 let allBulletsarray = Array.prototype.slice.call(allBullets);
 
 //ScrollToSection
-function scrollToSection(elements) {
+function scrollToSection(elements, elementMainClass) {
     elements.forEach((element) => {
         element.addEventListener("click", (e) => {
             e.preventDefault();
             document.querySelector(e.target.dataset.section).scrollIntoView({
                 behavior: "smooth",
             });
-            removeActive(".bullet.active");
+            removeActive(elementMainClass + ".active");
             element.classList.add("active");
         });
     });
 }
 
-scrollToSection(allBulletsarray);
+scrollToSection(allBulletsarray, ".bullet");
+scrollToSection(menuItemsArray, ".menuItems");
 
 //End Bullets System
