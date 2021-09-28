@@ -128,6 +128,10 @@ window.onscroll = function () {
         });
     }
 
+    //remove active class from bullets on top of site
+    if (window.scrollY < document.querySelector(".about-us").offsetTop) {
+        removeActive(".bullet.active");
+    }
     let Sections = document.querySelectorAll("section");
     Sections.forEach((section) => {
         if (window.scrollY >= section.offsetTop) {
@@ -140,23 +144,6 @@ window.onscroll = function () {
             });
         }
     });
-
-    // let Sections = document.querySelectorAll("section");
-    // Sections.forEach((section) => {
-    //     let sectionOffsetTop = section.offsetTop;
-    //     let sectionouterheight = section.offsetHeight;
-    //     let windowHeight = this.innerHeight;
-    //     let windowScrollTop = this.scrollY;
-    //     if (
-    //         windowScrollTop >
-    //         sectionOffsetTop + sectionouterheight - windowHeight
-    //     ) {
-    //         let allBullets = document.querySelectorAll(".bullet");
-    //         allBullets.forEach((bullet) => {
-    //             bullet.classList.add("active");
-    //         });
-    //     }
-    // });
 };
 
 //End Our Skills
