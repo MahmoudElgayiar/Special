@@ -212,7 +212,6 @@ let bulletsSection = document.querySelector(".bullets");
 allSections.forEach((section) => {
     //get section class
     // let sectionClass = section.className;
-    console.log(section.className);
     sectionHeading = document.querySelector(
         "." + section.className + " h1"
     ).innerHTML;
