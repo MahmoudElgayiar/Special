@@ -133,11 +133,14 @@ window.onscroll = function () {
         removeActive(".bullet.active");
     }
     let Sections = document.querySelectorAll("section");
+
     Sections.forEach((section) => {
-        if (window.scrollY >= section.offsetTop) {
+        let sectionViewPort =
+            section.offsetTop + section.offsetHeight - window.innerHeight;
+        if (window.scrollY > sectionViewPort) {
             let allBullets = document.querySelectorAll(".bullet");
             allBullets.forEach((bullet) => {
-                if (section.offsetTop >= bullet.dataset.offset) {
+                if (sectionViewPort == bullet.dataset.offset) {
                     removeActive(".bullet.active");
                     bullet.classList.add("active");
                 }
@@ -212,6 +215,8 @@ let bulletsSection = document.querySelector(".bullets");
 allSections.forEach((section) => {
     //get section class
     // let sectionClass = section.className;
+    let sectionViewPort =
+        section.offsetTop + section.offsetHeight - window.innerHeight;
     sectionHeading = document.querySelector(
         "." + section.className + " h1"
     ).innerHTML;
@@ -219,7 +224,7 @@ allSections.forEach((section) => {
     bullet.className = "bullet";
     bulletsSection.appendChild(bullet);
     bullet.setAttribute("data-section", "." + section.className);
-    bullet.setAttribute("data-offset", section.offsetTop);
+    bullet.setAttribute("data-offset", sectionViewPort);
     let tooltip = document.createElement("div");
     tooltip.className = "tooltip";
     let tooltipText = document.createTextNode(sectionHeading);
