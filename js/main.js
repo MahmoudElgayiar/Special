@@ -126,8 +126,9 @@ window.onscroll = function () {
     }
 
     //remove active class from bullets on top of site
-    if (window.scrollY < document.querySelector(".about-us").offsetTop) {
+    if (window.scrollY == 0) {
         removeActive(".bullet.active");
+        removeActive(".menuItems.active");
     }
     let Sections = document.querySelectorAll("section");
 
