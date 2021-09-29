@@ -111,6 +111,18 @@ listOfColors.forEach((color) => {
 
 let skills = document.querySelector(".skills");
 
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
 window.onscroll = function () {
     let skillsOffsetTop = skills.offsetTop;
     let skillsouterheight = skills.offsetHeight;
@@ -133,15 +145,27 @@ window.onscroll = function () {
     let Sections = document.querySelectorAll("section");
 
     Sections.forEach((section) => {
-        if (window.scrollY > section.offsetTop) {
-            let allBullets = document.querySelectorAll(".bullet");
+        // console.log(section.className + " -------- " + isInViewport(section));
+        if (isInViewport(section)) {
             allBullets.forEach((bullet) => {
-                if (section.offsetTop >= bullet.dataset.offset) {
+                if (bullet.dataset.section == "." + section.className) {
                     removeActive(".bullet.active");
                     bullet.classList.add("active");
                 }
             });
         }
+        // if (section.getBoundingClientRect().top < window.innerHeight) {
+        //     let allBullets = document.querySelectorAll(".bullet");
+        //     allBullets.forEach((bullet) => {
+        //         console.log(
+        //             section.className + "****" + bullet.dataset.section
+        //         );
+        //         if (section.className == bullet.dataset.section) {
+        //             removeActive(".bullet.active");
+        //             bullet.classList.add("active");
+        //         }
+        //     });
+        // }
     });
 };
 
@@ -218,7 +242,7 @@ allSections.forEach((section) => {
     bullet.className = "bullet";
     bulletsSection.appendChild(bullet);
     bullet.setAttribute("data-section", "." + section.className);
-    bullet.setAttribute("data-offset", section.offsetTop);
+    bullet.setAttribute("data-offset", section.getBoundingClientRect().top);
     let tooltip = document.createElement("div");
     tooltip.className = "tooltip";
     let tooltipText = document.createTextNode(sectionHeading);
@@ -234,10 +258,12 @@ function scrollToSection(elements, elementMainClass) {
     elements.forEach((element) => {
         element.addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector(e.target.dataset.section).scrollIntoView({
-                behavior: "smooth",
-            });
             removeActive(elementMainClass + ".active");
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                // behavior: "smooth",
+                block: "center",
+                inline: "nearest",
+            });
             element.classList.add("active");
         });
     });
