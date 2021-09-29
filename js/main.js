@@ -260,7 +260,7 @@ function scrollToSection(elements, elementMainClass) {
             e.preventDefault();
             removeActive(elementMainClass + ".active");
             document.querySelector(e.target.dataset.section).scrollIntoView({
-                // behavior: "smooth",
+                behavior: "smooth",
                 block: "center",
                 inline: "nearest",
             });
