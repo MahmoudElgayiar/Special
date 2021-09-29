@@ -66,6 +66,26 @@ if (localStorage.getItem("background-random") !== null) {
     }
 }
 
+//Check LocalStorage For Bullets Settings
+if (localStorage.getItem("bullets") !== null) {
+    switch (localStorage.getItem("bullets")) {
+        case "show":
+            removeActive(".settings-section.bullets-box span.active");
+            document
+                .querySelector(".settings-section.bullets-box .show")
+                .classList.add("active");
+            document.querySelector(".bullets").style.display = "block";
+            break;
+        case "hide":
+            removeActive(".settings-section.bullets-box span.active");
+            document
+                .querySelector(".settings-section.bullets-box .hide")
+                .classList.add("active");
+            document.querySelector(".bullets").style.display = "none";
+            break;
+    }
+}
+
 //Loop Over Spans and add click event to start or stop
 BgButtons.forEach((span) => {
     span.addEventListener("click", (e) => {
@@ -111,6 +131,7 @@ listOfColors.forEach((color) => {
 
 let skills = document.querySelector(".skills");
 
+//Check if element is in viewport
 function isInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
@@ -124,16 +145,13 @@ function isInViewport(el) {
 }
 
 window.onscroll = function () {
-    let skillsOffsetTop = skills.offsetTop;
-    let skillsouterheight = skills.offsetHeight;
-    let windowHeight = this.innerHeight;
-    let windowScrollTop = this.scrollY;
-    if (windowScrollTop > skillsOffsetTop + skillsouterheight - windowHeight) {
+    if (isInViewport(skills)) {
         let allskills = document.querySelectorAll(
             ".all-skills .skill-box .skill-progress span"
         );
         allskills.forEach((skill) => {
             skill.style.width = skill.dataset.progress;
+            skill.innerHTML = skill.dataset.progress;
         });
     }
 
@@ -154,18 +172,6 @@ window.onscroll = function () {
                 }
             });
         }
-        // if (section.getBoundingClientRect().top < window.innerHeight) {
-        //     let allBullets = document.querySelectorAll(".bullet");
-        //     allBullets.forEach((bullet) => {
-        //         console.log(
-        //             section.className + "****" + bullet.dataset.section
-        //         );
-        //         if (section.className == bullet.dataset.section) {
-        //             removeActive(".bullet.active");
-        //             bullet.classList.add("active");
-        //         }
-        //     });
-        // }
     });
 };
 
@@ -271,5 +277,25 @@ function scrollToSection(elements, elementMainClass) {
 
 scrollToSection(allBulletsarray, ".bullet");
 scrollToSection(menuItemsArray, ".menuItems");
+
+//Show Hide Bullets System
+let bulletsButtons = document.querySelectorAll(
+    ".settings-section.bullets-box span"
+);
+bulletsButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        if (button.dataset.bullet == "show") {
+            localStorage.setItem("bullets", "show");
+            document.querySelector(".bullets").style.display = "block";
+            removeActive(".settings-section.bullets-box span.active");
+            button.classList.add("active");
+        } else {
+            localStorage.setItem("bullets", "hide");
+            document.querySelector(".bullets").style.display = "none";
+            removeActive(".settings-section.bullets-box span.active");
+            button.classList.add("active");
+        }
+    });
+});
 
 //End Bullets System

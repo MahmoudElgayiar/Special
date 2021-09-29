@@ -115,6 +115,28 @@ body {
     opacity: 1;
 }
 
+/* Show Hide Bullets System */
+
+.bullets-box .show-hide {
+    margin-bottom: 15px;
+}
+.settings-box .bullets-box .show-hide .show,
+.settings-box .bullets-box .show-hide .hide {
+    background-color: var(--main-color);
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.settings-box .bullets-box .show-hide .active {
+    opacity: 1;
+}
+
+/* Show Hide Bullets System */
+
 /* End Settings Box */
 
 /* Start Landing Page */
@@ -265,6 +287,10 @@ body {
     overflow: hidden;
     border-radius: 6px;
     background-color: #eee;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    line-height: 30px;
 }
 
 .all-skills .skill-box .skill-progress span {
