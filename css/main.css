@@ -734,6 +734,8 @@ body {
     background-color: rgba(218, 218, 218, 0.19);
     border-radius: 10px;
     padding-left: 10px;
+    outline-color: var(--main-color);
+    border: 1px solid #333;
 }
 .contact-us form .right {
     display: block;
@@ -743,10 +745,13 @@ body {
     width: 97.5%;
     height: 148px;
     margin-bottom: 10px;
+    padding-top: 10px;
     background-color: rgba(218, 218, 218, 0.19);
     border-radius: 10px;
     padding-left: 10px;
+    border: 1px solid #333;
     display: block;
+    outline-color: var(--main-color);
 }
 
 .contact-us form input[type="submit"] {
@@ -754,13 +759,33 @@ body {
     height: 40px;
     border-radius: 10px;
     padding-left: 10px;
+    border: 1px solid #333;
     width: 100%;
     color: #fff;
     background-color: var(--main-color);
 }
 
-.contact-us form input:not([type="submit"])::focus,
-.contact-us form textarea:focus {
-    outline: 1px solid var(--main-color);
+.contact-us form input:not([type="submit"]):focus::-webkit-input-placeholder,
+.contact-us form textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: 0.3s;
 }
+.contact-us form input:not([type="submit"]):focus::-ms-placeholder,
+.contact-us form textarea:focus::-ms-placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.contact-us form input:not([type="submit"]):focus::-moz-placeholder,
+.contact-us form textarea:focus::-moz-placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.contact-us form input:not([type="submit"]):focus::placeholder,
+.contact-us form textarea:focus::placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+
 /* Contact US */
