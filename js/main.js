@@ -47,7 +47,7 @@ function RandomizeBacground() {
             let randomNumber = Math.floor(Math.random() * backgrounds.length);
             landingPage.style.backgroundImage =
                 'url("images/' + backgrounds[randomNumber] + '")';
-        }, 5000);
+        }, 3000);
     }
 }
 // Check If Local Storage Have Data and load it if exist
@@ -64,6 +64,10 @@ if (localStorage.getItem("background-random") !== null) {
             landingPage.style.backgroundImage = 'url("images/02.jpg")';
             break;
     }
+} else {
+    removeActive(".start-stop .active");
+    document.querySelector(".start-stop .start").classList.add("active");
+    RandomizeBacground();
 }
 
 //Check LocalStorage For Bullets Settings
@@ -87,6 +91,7 @@ if (localStorage.getItem("bullets") !== null) {
 }
 
 //Loop Over Spans and add click event to start or stop
+
 BgButtons.forEach((span) => {
     span.addEventListener("click", (e) => {
         removeActive(".start-stop .active");
@@ -299,3 +304,10 @@ bulletsButtons.forEach((button) => {
 });
 
 //End Bullets System
+//Reset Settings
+document.querySelector(".reset-settings").onclick = function () {
+    localStorage.removeItem("Site-Color");
+    localStorage.removeItem("background-random");
+    localStorage.removeItem("bullets");
+    window.location.reload();
+};

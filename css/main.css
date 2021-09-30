@@ -3,6 +3,7 @@
     --main-color: #ff8040;
 }
 body {
+    box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
     height: 6000px;
 }
@@ -94,6 +95,24 @@ body {
 }
 .settings-box .colors :nth-child(5) {
     background-color: #02ee0e;
+}
+
+.reset-settings {
+    width: 180px;
+    background-color: #a30707d0;
+    color: #fff;
+    font-weight: bold;
+    height: 35px;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: block;
+    border: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.reset-settings:hover {
+    background-color: #f12323;
 }
 
 /* Randomize Background */
@@ -674,3 +693,72 @@ body {
     transform: translateY(-50%);
 }
 /* End Bullets System */
+/* Contact US */
+.contact-us {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background-image: url("../images/contact-us.png");
+    background-size: cover;
+    min-height: 600px;
+    position: relative;
+}
+
+.contact-us .container {
+    position: relative;
+    z-index: 2;
+}
+.contact-us .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-us form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.contact-us form .left {
+    width: 49%;
+    display: block;
+}
+
+.contact-us form input:not([type="submit"]) {
+    margin-bottom: 10px;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(218, 218, 218, 0.19);
+    border: 0.5px solid #333;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.contact-us form .right {
+    display: block;
+    width: 49%;
+}
+.contact-us form textarea {
+    width: 100%;
+    height: 140px;
+    margin-bottom: 10px;
+    background-color: rgba(218, 218, 218, 0.19);
+    border: 0.5px solid #333;
+    border-radius: 10px;
+    padding-left: 10px;
+    display: block;
+}
+
+.contact-us form input[type="submit"] {
+    display: block;
+    height: 40px;
+    border: 0.5px solid #333;
+    border-radius: 10px;
+    padding-left: 10px;
+    width: 100%;
+    color: #fff;
+    background-color: var(--main-color);
+}
+/* Contact US */

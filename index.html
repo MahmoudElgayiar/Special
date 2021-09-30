@@ -36,6 +36,7 @@
                         >
                     </div>
                 </div>
+                <hr />
                 <div class="settings-section bullets-box">
                     <h3>Bullets Navigation</h3>
                     <div class="show-hide">
@@ -43,6 +44,10 @@
                         <span class="hide" data-bullet="hide">Hide</span>
                     </div>
                 </div>
+                <hr />
+                <button class="reset-settings" type="reset">
+                    Reset Settings
+                </button>
             </div>
         </div>
         <!-- End Settings Box -->
@@ -109,6 +114,14 @@
                                 data-section=".testimonials"
                                 class="menuItems"
                                 >Testimonials</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                data-section=".contact-us"
+                                class="menuItems"
+                                >Contact Us</a
                             >
                         </li>
                     </ul>
@@ -381,7 +394,50 @@
             </div>
         </section>
         <!-- Testimonials -->
-
+        <!-- Contact Us -->
+        <section class="contact-us">
+            <div class="overlay"></div>
+            <div class="container">
+                <h1>Contact Us</h1>
+                <form action="">
+                    <div class="left">
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Your Name"
+                        />
+                        <input
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            placeholder="Your Phone"
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Your Email"
+                        />
+                        <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            placeholder="Subject"
+                        />
+                    </div>
+                    <div class="right">
+                        <textarea
+                            name="message"
+                            id="message"
+                            placeholder="Your Message"
+                        ></textarea>
+                        <input type="submit" value="Send" />
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Contact Us -->
         <script src="js/main.js"></script>
     </body>
 </html>
