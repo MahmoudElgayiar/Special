@@ -743,7 +743,7 @@ body {
 }
 .contact-us form textarea {
     width: 97.5%;
-    height: 148px;
+    height: 142px;
     margin-bottom: 10px;
     padding-top: 10px;
     background-color: rgba(218, 218, 218, 0.19);
@@ -752,6 +752,11 @@ body {
     border: 1px solid #333;
     display: block;
     outline-color: var(--main-color);
+}
+
+.contact-us form input:not([type="submit"]):focus,
+.contact-us form textarea:focus {
+    background-color: #fff;
 }
 
 .contact-us form input[type="submit"] {
@@ -763,6 +768,12 @@ body {
     width: 100%;
     color: #fff;
     background-color: var(--main-color);
+    cursor: pointer;
+}
+
+.contact-us form input[type="submit"]:hover {
+    opacity: 0.6;
+    font-weight: bold;
 }
 
 .contact-us form input:not([type="submit"]):focus::-webkit-input-placeholder,
