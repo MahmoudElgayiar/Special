@@ -853,7 +853,7 @@ body {
 }
 .contact-us form textarea {
     width: 97.5%;
-    height: 142px;
+    height: 140px;
     margin-bottom: 10px;
     padding-top: 10px;
     background-color: rgba(218, 218, 218, 0.19);
@@ -870,7 +870,7 @@ body {
 
 .contact-us form input[type="submit"] {
     display: block;
-    height: 40px;
+    height: 42px;
     padding-left: 10px;
     border: 1px solid #333;
     width: 100%;
