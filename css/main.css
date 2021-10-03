@@ -219,6 +219,10 @@ body {
     cursor: pointer;
 }
 
+.main-nav .links li:hover a {
+    color: var(--main-color);
+}
+
 .main-nav .links li a {
     color: #fff;
     text-decoration: none;
@@ -326,7 +330,7 @@ body {
 
     .main-nav .links-container .links.open::after {
         content: "\f005";
-        font-family: FontAwesome;
+        font-family: FontAwesome, "Open Sans", sans-serif;
         position: absolute;
         font-size: 196px;
         height: 100%;
@@ -888,11 +892,6 @@ body {
 
 .contact-us form input:not([type="submit"]):focus::-webkit-input-placeholder,
 .contact-us form textarea:focus::-webkit-input-placeholder {
-    opacity: 0;
-    transition: 0.3s;
-}
-.contact-us form input:not([type="submit"]):focus::-ms-placeholder,
-.contact-us form textarea:focus::-ms-placeholder {
     opacity: 0;
     transition: 0.3s;
 }
