@@ -362,10 +362,12 @@ body {
 }
 .about-us-content {
     display: flex;
+
 }
-.about-us .text-box {
+.about-us .about-us-content .text-box {
     flex: 1;
     padding-left: 15px;
+
 }
 .about-us .text-box h1 {
     color: var(--main-color);
