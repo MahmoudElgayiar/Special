@@ -387,6 +387,16 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+@media (max-width: 767px) {
+    .about-us .about-us-content {
+        display: block;
+        text-align: center;
+    }
+    .about-us .about-us-content .image-box {
+        text-align: center;
+    }
+}
 .about-us-content {
     display: flex;
 }
@@ -720,6 +730,12 @@ body {
     position: relative;
 }
 
+@media (max-width: 767px) {
+    .testimonials .testimonials-content {
+        display: block;
+    }
+}
+
 .testimonials::before {
     content: "";
     position: absolute;
@@ -943,6 +959,12 @@ body {
 @media (min-width: 576px) {
     .container {
         max-width: 540px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
     }
 }
 
